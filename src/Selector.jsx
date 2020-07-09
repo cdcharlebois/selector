@@ -8,6 +8,7 @@ class Selector extends Component {
   constructor(props) {
     super(props)
     this._getOptions = this._getOptions.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
   _getOptions() {
     const { dsOptions, attText } = this.props;
@@ -16,13 +17,21 @@ class Selector extends Component {
     // });
     return dsOptions.status !== "available" ? null : dsOptions.items;
   }
+  handleChange(option, actionType) {
+    const { actSetter } = this.props;
+    if (option != "" && actSetter(option) && actSetter(option).canExecute) {
+      actSetter(option).execute();
+    }
+  }
   render() {
     const { widOption } = this.props;
-    const CustomOption = (innerProps) => widOption(innerProps.data)
+    const formatOptionLabel = (item) => widOption(item);
+
     return (
       <Select
-        components={{ Option: CustomOption }}
         options={this._getOptions()}
+        formatOptionLabel={formatOptionLabel}
+        onChange={this.handleChange}
       />
     );
   }
