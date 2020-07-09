@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<widget id="mendix.selector.Selector" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
-        supportedPlatform="Web"
-        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
-    <name>Selector</name>
-    <description>A rich reference selector</description>
-    <icon/>
-    <properties>
-        <propertyGroup caption="General">
-            <property key="sampleText" type="string" required="false">
-                <caption>Default value</caption>
-                <description>Sample text input</description>
-            </property>
-        </propertyGroup>
-    </properties>
+<widget id="mendix.selector.Selector" pluginWidget="true" needsEntityContext="true" offlineCapable="true" supportedPlatform="Web" 
+  xmlns="http://www.mendix.com/widget/1.0/" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+  <name>Selector</name>
+  <description>A rich reference selector</description>
+  <icon/>
+  <properties>
+    <propertyGroup caption="General">
+      <property key="dsOptions" type="datasource" required="true" isList="true">
+        <caption>Selectable Objects</caption>
+        <description></description>
+      </property>
+      <property key="attText" type="attribute" required="true" dataSource="dsOptions">
+        <caption>Option Value</caption>
+        <description>Used in the dropdown</description>
+        <attributeTypes>
+          <attributeType name="String" />
+        </attributeTypes>
+      </property>
+      <property key="actSetter" type="action" dataSource="dsOptions">
+        <caption>Setter</caption>
+        <description>Use a nanoflow here to set the reference to the selected option.</description>
+      </property>
+    </propertyGroup>
+  </properties>
 </widget>

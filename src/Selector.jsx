@@ -6,14 +6,19 @@ import Select from 'react-select'
 import "./ui/Selector.css";
 
 class Selector extends Component {
+  constructor(props) {
+    super(props)
+    this._getOptions = this._getOptions.bind(this);
+  }
+  _getOptions() {
+    const { dsOptions, attText } = this.props;
+    return dsOptions.status !== "available" ? null : dsOptions.items.map((i) => {
+      return { value: attText(i).value, label: attText(i).displayValue }
+    });
+  }
   render() {
-    const options = [
-      { value: 'chocolate', label: 'Chocolate' },
-      { value: 'strawberry', label: 'Strawberry' },
-      { value: 'vanilla', label: 'Vanilla' }
-    ]
     return (
-      <Select options={options} />
+      <Select options={this._getOptions()} />
     );
   }
 }

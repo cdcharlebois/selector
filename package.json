@@ -6,8 +6,8 @@
   "copyright": "Mendix 2019",
   "author": "Conner Charlebois",
   "config": {
-    "widgetPath": "./dist/MxTestProject/widgets",
-    "projectPath": "./dist/MxTestProject/",
+    "widgetPath": "/Users/conner/mendix/p/FEW_PSNI_20200629-main/widgets",
+    "projectPath": "/Users/conner/mendix/p/FEW_PSNI_20200629-main/",
     "mendixHost": "http://localhost:8080",
     "developmentPort": "3000"
   },
