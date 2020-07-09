@@ -17,7 +17,7 @@ class Selector extends Component {
     return dsOptions.status !== "available" ? null : dsOptions.items;
   }
   render() {
-    const { widOption, dsOptions } = this.props;
+    const { widOption } = this.props;
     const CustomOption = (innerProps) => widOption(innerProps.data)
     return (
       <Select
