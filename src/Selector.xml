@@ -18,6 +18,10 @@
           <attributeType name="String" />
         </attributeTypes>
       </property>
+      <property key="widOption" type="widgets" required="false" dataSource="dsOptions">
+        <caption>Rich Option</caption>
+        <description></description>
+      </property>
       <property key="actSetter" type="action" dataSource="dsOptions">
         <caption>Setter</caption>
         <description>Use a nanoflow here to set the reference to the selected option.</description>
